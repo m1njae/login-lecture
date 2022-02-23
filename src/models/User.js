@@ -36,9 +36,14 @@ class User {
         // return response.json(res);
     }
 
-    register() {
+    async register() {
         const client = this.body;
-        UserStorage.save(client);
+        try{
+        const response = await UserStorage.save(client);
+        return response;
+        } catch(error){
+            return { success: false, message: error};
+        }
     }
 }
 

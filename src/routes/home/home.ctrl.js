@@ -19,13 +19,13 @@ const output = {
 const process = {
     login: async function (request, response){ 
         const user = new User(request.body);
-        const res = await  user.login();
+        const res = await user.login();
         return response.json(res);
     },
 
-    register: function (request, response){
+    register: async function (request, response){
         const user = new User(request.body);
-        const res = user.register();
+        const res = await user.register();
         return response.json(res);
     }
 }
