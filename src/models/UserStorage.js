@@ -1,15 +1,24 @@
 "use strict";
 
+const fs = require("fs").promises;
+
 class UserStorage{
-    static #users = {
-        id: ["minjae","rkdalswo1021", "mj991021"],
-        password: ["1234","12345","123456"],
-        name: ["민재", "강민재", "강민재2"]
-    };
+    
+    static #getUserInfo(data, id){
+            const users = JSON.parse(data);
+            const idx = users.id.indexOf(id);
+            const usersKeys = Object.keys(users); // [id, password, name]
+            const userInfo = usersKeys.reduce((newUser, info) => {
+                newUser[info] = users[info][idx];
+                return newUser;
+            },{});
+        
+         return userInfo;
+    }
 
     // 은닉화된 데이터를 가져오도록 하는 메소드
     static getUsers(...fields) {
-        const users = this.#users;
+        //const users = this.#users;
         const newUsers = fields.reduce((newUsers, field) => {
             if (users.hasOwnProperty(field)){
                 newUsers[field] = users[field];
@@ -20,19 +29,17 @@ class UserStorage{
     }
 
     static getUsersInfo(id){
-        const users = this.#users;
-        const idx = users.id.indexOf(id);
-        const usersKeys = Object.keys(users); // [id, password, name]
-        const userInfo = usersKeys.reduce((newUser, info) => {
-            newUser[info] = users[info][idx];
-            return newUser;
-        },{});
-    
-     return userInfo;
+        //const users = this.#users;
+        return fs.readFile("./src/db/users.json")
+          .then((data) => {
+            return this.#getUserInfo(data, id);
+          })
+          .catch(console.error);
     }
 
+
     static save(userInfo){
-        const users = this.#users;
+        //const users = this.#users;
         users.id.push(userInfo.id);
         users.password.push(userInfo.password);
         users.name.push(userInfo.name);
