@@ -1,7 +1,8 @@
 // 모듈
 const express = require('express');
 const app = express();
-
+const dotenv = require("dotenv");
+dotenv.config();
 
 const PORT = 3000;
 //라우팅
