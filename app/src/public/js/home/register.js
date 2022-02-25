@@ -31,6 +31,7 @@ function register() {
           if (response.success){
               location.href = "/login";
           } else {
+              if (response.error) return alert("문제가 발생하였습니다!");
               alert(response.message);
           }
         })

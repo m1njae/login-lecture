@@ -21,7 +21,7 @@ class User {
             }
             return {success: false, message: "등록되지 않은 아이디입니다."};
             } catch(error){
-                return {success: false, message: error};
+                return {success: false, error};
             }
 
             
@@ -48,7 +48,7 @@ class User {
         const response = await UserStorage.save(client);
         return response;
         } catch(error){
-            return { success: false, message: error};
+            return { success: false, error};
         }
     }
 

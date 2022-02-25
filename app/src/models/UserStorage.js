@@ -8,8 +8,8 @@ class UserStorage{
         return new Promise((resolve, reject) =>{
             const query = "SELECT * FROM users WHERE id=?;";
             db.query(query,[id], (error, data) =>{
-                if (error) reject(error);
-                resolve(data[0]);
+                if (error) reject(`${error}`);
+                else resolve(data[0]);
             });
         });
         
@@ -22,7 +22,7 @@ class UserStorage{
             db.query(query,
                 [userInfo.id, userInfo.password, userInfo.name], 
                 (error) =>{
-                if (error) reject(error);
+                if (error) reject(`${error}`);
                 resolve({success: true});
             });
         });   
