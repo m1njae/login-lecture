@@ -1,6 +1,6 @@
 <h2 align="center">🔑로그인&회원가입🔑</h2>
 <p align="center">
-  백엔드를 경험해보기 위해 Youtube 채널 <a href="https://www.youtube.com/playlist?list=PLSK4WsJ8JS4cQ-niGNum4bkK_THHOizTs">우리밋_woorimIT</a> 영상 강의를 통한 구현 연습
+  백엔드를 경험해보기 위해 Youtube 채널 <a href="https://www.youtube.com/playlist?list=PLSK4WsJ8JS4cQ-niGNum4bkK_THHOizTs">우리밋_woorimIT</a> 영상 강의를 통한 구현 학습
 </p>  
 <p align="center">
   <img width= "50%" src="https://user-images.githubusercontent.com/82744423/155874329-fa0a9aa4-08f4-4319-aef4-116e7dec6827.png">
