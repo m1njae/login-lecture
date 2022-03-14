@@ -39,7 +39,7 @@ const process = {
         if (res.error)
              logger.error(`POST / login 200 Response: "success: ${res.success}, ${res.error}`)
         else logger.info(
-            `POST / login 200 Response: "success: ${response.success}, message: ${res.message}"`
+            `POST / login 200 Response: "success: ${res.success}, message: ${res.message}"`
         );
         return response.json(res);
     }
